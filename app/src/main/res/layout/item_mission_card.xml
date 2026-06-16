@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/round_cards" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="92dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView12"
+        app:srcCompat="@drawable/mission_icon" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="36dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView14"
+        app:srcCompat="@drawable/ticket_icon" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="+2"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView15"
+        app:layout_constraintStart_toStartOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:maxLines="1"
+        android:text="Watch 50 ads"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView15"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:maxLines="1"
+        android:text="You’re an ad master!"
+        android:textAlignment="viewStart"
+        android:textColor="@color/txt_color"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView34"
+        app:layout_constraintStart_toStartOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <ProgressBar
+        android:id="@+id/levelProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="136dp"
+        android:layout_height="32dp"
+        android:background="@drawable/level_view_bg"
+        android:max="100"
+        android:padding="2dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_layer"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+        app:layout_constraintEnd_toStartOf="@+id/imageView15"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+    <TextView
+        android:id="@+id/progress_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="4/10"
+        android:textColor="@color/txt_color"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/levelProgress"
+        app:layout_constraintEnd_toEndOf="@+id/levelProgress"
+        app:layout_constraintStart_toStartOf="@+id/levelProgress"
+        app:layout_constraintTop_toTopOf="@+id/levelProgress" />
+
+    <View
+        android:id="@+id/claim_box"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/gold_view_mission"
+        app:layout_constraintBottom_toBottomOf="@+id/levelProgress"
+        app:layout_constraintEnd_toEndOf="@+id/levelProgress"
+        app:layout_constraintStart_toStartOf="@+id/levelProgress"
+        app:layout_constraintTop_toTopOf="@+id/levelProgress" />
+
+    <TextView
+        android:id="@+id/claim_reward_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Claim Award!"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/levelProgress"
+        app:layout_constraintEnd_toEndOf="@+id/levelProgress"
+        app:layout_constraintStart_toStartOf="@+id/levelProgress"
+        app:layout_constraintTop_toTopOf="@+id/levelProgress" />
+
+    <TextView
+        android:id="@+id/completed_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Completed"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/levelProgress"
+        app:layout_constraintEnd_toEndOf="@+id/levelProgress"
+        app:layout_constraintStart_toStartOf="@+id/levelProgress"
+        app:layout_constraintTop_toTopOf="@+id/levelProgress" />
+    <View
+        android:id="@+id/completed_box"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/gold_view_mission"
+        app:layout_constraintBottom_toBottomOf="@+id/levelProgress"
+        app:layout_constraintEnd_toEndOf="@+id/levelProgress"
+        app:layout_constraintStart_toStartOf="@+id/levelProgress"
+        app:layout_constraintTop_toTopOf="@+id/levelProgress" />
+</androidx.constraintlayout.widget.ConstraintLayout>

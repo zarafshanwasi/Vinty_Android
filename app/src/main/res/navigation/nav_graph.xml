@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Home Screen -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.idealink.vinty.ui.fragments.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_badgeFragment"
+            app:destination="@id/badgeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_inviteCodeFragment"
+            app:destination="@id/inviteCodeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_missionFragment"
+            app:destination="@id/missionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_signInOtpFragment2"
+            app:destination="@id/signInOtpFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentJackpot"
+            app:destination="@id/fragmentJackpot" />
+    </fragment>
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.idealink.vinty.ui.fragments.leaderboard.LeaderboardFragment"
+        android:label="fragment_leaderboard"
+        tools:layout="@layout/fragment_leaderboard">
+
+        <action
+            android:id="@+id/action_leaderboardFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_leaderboardFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_leaderboardFragment_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/badgeFragment"
+        android:name="com.idealink.vinty.ui.fragments.badge.BadgeFragment"
+        android:label="fragment_badge"
+        tools:layout="@layout/fragment_badge">
+        <action
+            android:id="@+id/action_badgeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_badgeFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_badgeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.idealink.vinty.ui.fragments.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_inviteCodeFragment"
+            app:destination="@id/inviteCodeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_userHistoryFragment"
+            app:destination="@id/userHistoryFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_signInOtpFragment2"
+            app:destination="@id/signInOtpFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.idealink.vinty.ui.fragments.profile.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inviteCodeFragment"
+        android:name="com.idealink.vinty.ui.fragments.profile.InviteCodeFragment"
+        android:label="fragment_invite_code"
+        tools:layout="@layout/fragment_invite_friend_code" >
+        <action
+            android:id="@+id/action_inviteCodeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userHistoryFragment"
+        android:name="com.idealink.vinty.ui.fragments.profile.UserHistoryFragment"
+        android:label="fragment_user_history"
+        tools:layout="@layout/fragment_user_history" >
+        <action
+            android:id="@+id/action_userHistoryFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/missionFragment"
+        android:name="com.idealink.vinty.ui.fragments.mission.MissionFragment"
+        android:label="fragment_mission"
+        tools:layout="@layout/fragment_mission" >
+        <action
+            android:id="@+id/action_missionFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inviteFreindRewardFragment"
+        android:name="com.idealink.vinty.ui.fragments.profile.InviteFriendRewardFragment"
+        android:label="InviteFreindRewardFragment" />
+    <fragment
+        android:id="@+id/inviteFriendRewardFragment"
+        android:name="com.idealink.vinty.ui.fragments.profile.InviteFriendRewardFragment"
+        android:label="InviteFriendRewardFragment" />
+    <fragment
+        android:id="@+id/signInOtpFragment2"
+        android:name="com.idealink.vinty.ui.fragments.auth.SignInOtpFragment"
+        android:label="fragment_sign_in_otp"
+        tools:layout="@layout/fragment_sign_in_otp" >
+        <action
+            android:id="@+id/action_signInOtpFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentGiftStore"
+        android:name="com.idealink.vinty.ui.fragments.giftstore.FragmentGiftStore"
+        android:label="fragment_fragment_gift_store"
+        tools:layout="@layout/fragment_fragment_gift_store" >
+        <action
+            android:id="@+id/action_fragmentGiftStore_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/badgeDetailBottomSheet"
+        android:name="com.idealink.vinty.ui.fragments.badge.BadgeDetailBottomSheet"
+        android:label="BadgeDetailBottomSheet" />
+    <fragment
+        android:id="@+id/fragmentJackpot"
+        android:name="com.idealink.vinty.ui.fragments.jackpot.JackpotFragment"
+        android:label="fragment_jackpot"
+        tools:layout="@layout/fragment_jackpot" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.idealink.vinty.ui.fragments.profile.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+
+</navigation>
+
+

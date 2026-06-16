@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.fragments.home.HomeFragment" >
+
+    <!-- Top Profile Section -->
+    <com.idealink.vinty.ui.views.ProfileHeaderView
+        android:id="@+id/profileHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ScrollView with all content including welcome text -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileHeader">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <!-- Welcome Text - Inside ScrollView -->
+            <TextView
+                android:id="@+id/welcome_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Welcome"
+                android:textColor="#B3A3C6"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Invite Friends Card -->
+            <View
+                android:id="@+id/invite_card_background"
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/invite_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
+
+            <View
+                android:id="@+id/invite_button_background"
+                android:layout_width="112dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/gold_view"
+                app:layout_constraintBottom_toBottomOf="@+id/invite_card_background"
+                app:layout_constraintEnd_toEndOf="@+id/invite_card_background"
+                app:layout_constraintTop_toTopOf="@+id/invite_card_background" />
+            <TextView
+                android:id="@+id/invite_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/invite_now"
+                android:textColor="@color/blue_txt_color"
+                app:layout_constraintBottom_toBottomOf="@+id/invite_button_background"
+                app:layout_constraintEnd_toEndOf="@+id/invite_button_background"
+                app:layout_constraintStart_toStartOf="@+id/invite_button_background"
+                app:layout_constraintTop_toTopOf="@+id/invite_button_background" />
+
+            <TextView
+                android:id="@+id/invite_description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:text="@string/invite_your_friends_nto_win_more_tickets"
+                app:layout_constraintBottom_toBottomOf="@+id/invite_card_background"
+                app:layout_constraintStart_toStartOf="@+id/invite_card_background"
+                app:layout_constraintTop_toTopOf="@+id/invite_card_background" />
+
+            <!-- Ad Badge Card -->
+            <ImageView
+                android:id="@+id/badge_card_background"
+                android:layout_width="0dp"
+                android:layout_height="116dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_card3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/invite_card_background" />
+
+            <ImageView
+                android:id="@+id/badge_icon_image"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="20dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@+id/badge_card_background"
+                app:layout_constraintStart_toStartOf="@+id/badge_card_background"
+                app:layout_constraintTop_toTopOf="@+id/badge_card_background" />
+
+            <ProgressBar
+                android:id="@+id/badgeLoader"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@id/badge_icon_image"
+                app:layout_constraintBottom_toBottomOf="@id/badge_icon_image"
+                app:layout_constraintStart_toStartOf="@id/badge_icon_image"
+                app:layout_constraintEnd_toEndOf="@id/badge_icon_image"/>
+
+
+            <TextView
+                android:id="@+id/badge_description_home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/you_are_only_12_ads_away_from_n_winning_the_ad_explorer_badge"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/badge_card_background"
+                app:layout_constraintStart_toEndOf="@+id/badge_icon_image"
+                app:layout_constraintTop_toTopOf="@+id/badge_icon_image" />
+
+            <View
+                android:id="@+id/view_badge_button_background"
+                android:layout_width="126dp"
+                android:layout_height="34dp"
+                android:background="@drawable/gold_view"
+                app:layout_constraintBottom_toBottomOf="@+id/badge_card_background"
+                app:layout_constraintStart_toStartOf="@+id/badge_description_home"
+                app:layout_constraintTop_toBottomOf="@+id/badge_description_home" />
+
+            <TextView
+                android:id="@+id/view_badge_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/view_badges"
+                android:textSize="13sp"
+                android:textColor="@color/blue_txt_color"
+                app:layout_constraintBottom_toBottomOf="@+id/view_badge_button_background"
+                app:layout_constraintEnd_toEndOf="@+id/view_badge_button_background"
+                app:layout_constraintStart_toStartOf="@+id/view_badge_button_background"
+                app:layout_constraintTop_toTopOf="@+id/view_badge_button_background" />
+
+            <!-- Missions and Jackpot Cards -->
+            <ImageView
+                android:id="@+id/missions_card_background"
+                android:layout_width="0dp"
+                android:layout_height="306dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="5dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_card1"
+                app:layout_constraintEnd_toStartOf="@+id/jackpot_card_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/badge_card_background" />
+
+            <ImageView
+                android:id="@+id/jackpot_card_background"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_card2"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="@+id/missions_card_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/missions_card_background"
+                app:layout_constraintTop_toTopOf="@+id/missions_card_background" />
+
+            <!-- Missions Card Content -->
+            <ImageView
+                android:id="@+id/missions_icon"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/treasure_icon"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintEnd_toEndOf="@+id/missions_card_background"
+                app:layout_constraintStart_toStartOf="@+id/missions_card_background"
+                app:layout_constraintTop_toTopOf="@+id/missions_card_background" />
+
+            <TextView
+                android:id="@+id/missions_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/new_missions"
+                android:textColor="@color/gold_txt_color"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/missions_card_background"
+                app:layout_constraintStart_toStartOf="@+id/missions_card_background"
+                app:layout_constraintTop_toBottomOf="@+id/missions_icon" />
+
+            <TextView
+                android:id="@+id/missions_description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/complete_all_n_missions_to_earn_n_more_tickets"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/missions_title_text"
+                app:layout_constraintTop_toBottomOf="@+id/missions_title_text" />
+
+            <View
+                android:id="@+id/missions_button_background"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/gold_view"
+                app:layout_constraintBottom_toBottomOf="@+id/missions_card_background"
+                app:layout_constraintEnd_toEndOf="@+id/missions_card_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/missions_description_text" />
+
+            <TextView
+                android:id="@+id/see_all_mission_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/see_all_missions"
+                android:textAlignment="center"
+                android:textColor="@color/blue_txt_color"
+                android:textSize="13sp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/missions_button_background"
+                app:layout_constraintEnd_toEndOf="@+id/missions_button_background"
+                app:layout_constraintStart_toStartOf="@+id/missions_button_background"
+                app:layout_constraintTop_toTopOf="@+id/missions_button_background" />
+
+            <!-- Jackpot Card Content -->
+            <ImageView
+                android:id="@+id/jackpot_icon"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/jackpot_icon"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintEnd_toEndOf="@+id/jackpot_card_background"
+                app:layout_constraintStart_toStartOf="@+id/jackpot_card_background"
+                app:layout_constraintTop_toTopOf="@+id/jackpot_card_background" />
+
+            <TextView
+                android:id="@+id/jackpot_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/jackpot"
+                android:textColor="@color/gold_txt_color"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/jackpot_icon"
+                app:layout_constraintTop_toBottomOf="@+id/jackpot_icon" />
+
+            <TextView
+                android:id="@+id/jackpot_description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/spin_the_jackpot_and_ndon_t_miss_today_s_nchance_to_win_big"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/jackpot_title_text"
+                app:layout_constraintTop_toBottomOf="@+id/jackpot_title_text" />
+
+            <View
+                android:id="@+id/jackpot_button_background"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/gold_view"
+                app:layout_constraintBottom_toBottomOf="@+id/jackpot_card_background"
+                app:layout_constraintEnd_toEndOf="@+id/jackpot_card_background"
+                app:layout_constraintStart_toStartOf="@+id/jackpot_card_background"
+                app:layout_constraintTop_toBottomOf="@+id/jackpot_description_text" />
+
+            <TextView
+                android:id="@+id/spin_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/tap_to_spin"
+                android:textAlignment="center"
+                android:textColor="@color/blue_txt_color"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/jackpot_button_background"
+                app:layout_constraintEnd_toEndOf="@+id/jackpot_button_background"
+                app:layout_constraintStart_toStartOf="@+id/jackpot_button_background"
+                app:layout_constraintTop_toTopOf="@+id/jackpot_button_background" />
+
+            <!-- Leaderboard Card -->
+            <ImageView
+                android:id="@+id/leaderboard_card_background"
+                android:layout_width="0dp"
+                android:layout_height="118dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="100dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_card4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/missions_card_background" />
+
+            <ImageView
+                android:id="@+id/leaderboard_icon"
+                android:layout_width="92dp"
+                android:layout_height="78dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/leaderboard_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/leaderboard_card_background"
+                app:layout_constraintEnd_toEndOf="@+id/leaderboard_card_background"
+                app:layout_constraintTop_toTopOf="@+id/leaderboard_card_background" />
+
+            <TextView
+                android:id="@+id/leaderboard_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/leaderboard"
+                android:textColor="@color/gold_txt_color"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/leaderboard_card_background"
+                app:layout_constraintTop_toTopOf="@+id/leaderboard_icon" />
+
+            <TextView
+                android:id="@+id/leaderboard_description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:lineSpacingExtra="-5sp"
+                android:text="@string/see_the_ranking_of_all_players"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/leaderboard_title_text"
+                app:layout_constraintTop_toBottomOf="@+id/leaderboard_title_text" />
+
+            <View
+                android:id="@+id/leaderboard_button_background"
+                android:layout_width="150dp"
+                android:layout_height="32dp"
+                android:background="@drawable/gold_view"
+                app:layout_constraintBottom_toBottomOf="@+id/leaderboard_card_background"
+                app:layout_constraintStart_toStartOf="@+id/leaderboard_description_text"
+                app:layout_constraintTop_toBottomOf="@+id/leaderboard_description_text" />
+
+            <TextView
+                android:id="@+id/leaderboard_btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/view_leaderboard"
+                android:textColor="@color/blue_txt_color"
+                app:layout_constraintBottom_toBottomOf="@+id/leaderboard_button_background"
+                app:layout_constraintEnd_toEndOf="@+id/leaderboard_button_background"
+                app:layout_constraintStart_toStartOf="@+id/leaderboard_button_background"
+                app:layout_constraintTop_toTopOf="@+id/leaderboard_button_background" />
+
+            <View
+                android:id="@+id/verify_box"
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+                android:background="@drawable/bg_verify_box"
+                app:layout_constraintBottom_toBottomOf="@+id/invite_card_background"
+                app:layout_constraintEnd_toEndOf="@+id/invite_card_background"
+                app:layout_constraintStart_toStartOf="@+id/invite_card_background"
+                app:layout_constraintTop_toTopOf="@+id/invite_card_background" />
+
+            <TextView
+                android:id="@+id/verification_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/you_haven_t_completed_ne_mail_verification_yet"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/verify_box"
+                app:layout_constraintStart_toStartOf="@+id/verify_box"
+                app:layout_constraintTop_toTopOf="@+id/verify_box" />
+
+            <View
+                android:id="@+id/verification_btn"
+                android:layout_width="112dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/btn_box"
+                app:layout_constraintBottom_toBottomOf="@+id/verification_message_text"
+                app:layout_constraintEnd_toEndOf="@+id/verify_box"
+                app:layout_constraintStart_toEndOf="@+id/verification_message_text"
+                app:layout_constraintTop_toTopOf="@+id/verification_message_text" />
+
+            <TextView
+                android:id="@+id/verify_now_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/verify_now"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/verification_btn"
+                app:layout_constraintEnd_toEndOf="@+id/verification_btn"
+                app:layout_constraintStart_toStartOf="@+id/verification_btn"
+                app:layout_constraintTop_toTopOf="@+id/verification_btn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/btn_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

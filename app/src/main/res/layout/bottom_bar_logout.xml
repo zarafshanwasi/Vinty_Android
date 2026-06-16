@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/logout_bar">
+
+    <ImageView
+        android:id="@+id/logout_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="-20dp"
+        android:layout_marginEnd="10dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logout_icon" />
+
+    <TextView
+        android:id="@+id/logout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-80dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Are you sure \n you want to log out?"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logout_icon" />
+
+    <View
+        android:id="@+id/logout_btn_bg"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/red_bar_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logout_title" />
+
+    <TextView
+        android:id="@+id/confirm_logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textColor="@color/red_txt_color"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_semibold"
+        app:layout_constraintTop_toTopOf="@id/logout_btn_bg"
+        app:layout_constraintBottom_toBottomOf="@id/logout_btn_bg"
+        app:layout_constraintStart_toStartOf="@id/logout_btn_bg"
+        app:layout_constraintEnd_toEndOf="@id/logout_btn_bg" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/go_back_btn"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Go Back"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:backgroundTint="@color/btn_color"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/logout_btn_bg"
+        app:layout_constraintStart_toStartOf="@+id/logout_btn_bg"
+        app:layout_constraintTop_toBottomOf="@id/logout_btn_bg" />
+</androidx.constraintlayout.widget.ConstraintLayout>

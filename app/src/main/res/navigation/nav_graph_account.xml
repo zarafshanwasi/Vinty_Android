@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_account"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Login Screen -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.idealink.vinty.ui.fragments.auth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+
+
+        <action
+            android:id="@+id/action_loginFragment_to_signInOtpFragment"
+            app:destination="@id/signInOtpFragment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordCodeFragment"
+            app:destination="@id/forgotPasswordCodeFragment" />
+    </fragment>
+
+    <!-- Sign In OTP -->
+
+    <fragment
+        android:id="@+id/signInOtpFragment"
+        android:name="com.idealink.vinty.ui.fragments.auth.SignInOtpFragment"
+        android:label="Verify Email"
+        tools:layout="@layout/fragment_sign_in_otp">
+        <action
+            android:id="@+id/action_signInOtpFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_signInOtpFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signInOtpFragment_to_inviteFriendRewardFragment"
+            app:destination="@id/inviteFriendRewardFragment" />
+    </fragment>
+
+    <!-- Create Account -->
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.idealink.vinty.ui.fragments.auth.CreateAccountFragment"
+        android:label="Create Account"
+        tools:layout="@layout/fragment_create_account">
+        <action
+            android:id="@+id/action_createAccountFragment_to_signInOtpFragment"
+            app:destination="@id/signInOtpFragment" />
+        <action
+            android:id="@+id/action_createAccountFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Forgot Password (Step 1: Send Email) -->
+    <fragment
+        android:id="@+id/forgotPasswordCodeFragment"
+        android:name="com.idealink.vinty.ui.fragments.auth.ForgotPasswordCodeFragment"
+        android:label="Forgot Password - Email"
+        tools:layout="@layout/fragment_forgot_password_code">
+        <action
+            android:id="@+id/action_forgotPasswordCodeFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+
+    <!-- Forgot Password (Step 2: Verify OTP) -->
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.idealink.vinty.ui.fragments.auth.ForgotPasswordFragment"
+        android:label="Forgot Password - OTP"
+        tools:layout="@layout/fragment_forgot_password_otp">
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_forgotCreatePasswordFragment"
+            app:destination="@id/forgotCreatePasswordFragment" />
+    </fragment>
+
+    <!-- Forgot Password (Step 3: Create New Password) -->
+    <fragment
+        android:id="@+id/forgotCreatePasswordFragment"
+        android:name="com.idealink.vinty.ui.fragments.auth.ForgotCreatePasswordFragment"
+        android:label="Forgot Password - New Password"
+        tools:layout="@layout/fragment_forgot_create_password">
+        <action
+            android:id="@+id/action_forgotCreatePasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Onboarding -->
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.idealink.vinty.ui.fragments.onboarding.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- Invite Friend -->
+    <fragment
+        android:id="@+id/inviteFriendRewardFragment"
+        android:name="com.idealink.vinty.ui.fragments.auth.InviteApplyCodeFragment"
+        android:label="InviteFriendRewardFragment" >
+    </fragment>
+
+
+<!--    for testing purpose we add  home fragment here&ndash;&gt;&ndash;&gt;-->
+<!--    <fragment-->
+<!--        android:id="@+id/homeFragment2"-->
+<!--        android:name="com.idealink.vinty.ui.fragments.home.HomeFragment"-->
+<!--        android:label="fragment_home"-->
+<!--        tools:layout="@layout/fragment_home" />-->
+
+</navigation>

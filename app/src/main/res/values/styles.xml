@@ -1,0 +1,34 @@
+<resources>
+    <!-- Add this to your existing styles.xml -->
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Material3.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+        <item name="bottomSheetDragHandleStyle">@style/BottomSheetDragHandleHidden</item>
+        <item name="colorBackgroundFloating">#120036</item>
+        <item name="colorSurface">#120036</item>
+        <item name="colorSurfaceContainer">#120036</item>
+        <item name="colorSurfaceContainerLow">#120036</item>
+        <item name="colorSurfaceContainerHigh">#120036</item>
+        <item name="android:navigationBarColor">#120036</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="BottomSheetDragHandleHidden" parent="Widget.Material3.BottomSheet.DragHandle">
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="ProfileCircleImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout8"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.fragments.profile.ProfileFragment">
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:paddingBottom="70dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <FrameLayout
+                android:id="@+id/userAvtarFrame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Border background -->
+                <View
+                    android:layout_width="104dp"
+                    android:layout_height="104dp"
+                    android:background="@drawable/profile_round" />
+
+                <!-- Circular ImageView with proper clipping -->
+                <ImageView
+                    android:id="@+id/profileImageView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/profile_color_round2"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile_icon" />
+
+                <!-- Upload Progress Indicator -->
+                <ProgressBar
+                    android:id="@+id/avatarUploadProgress"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:indeterminateTint="@color/btn_color"
+                    android:elevation="4dp" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/username_txt_view_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/userAvtarFrame"
+                app:layout_constraintStart_toStartOf="@+id/userAvtarFrame"
+                app:layout_constraintTop_toBottomOf="@+id/userAvtarFrame" />
+
+            <ProgressBar
+                android:id="@+id/levelProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/level_view_bg"
+
+                android:max="100"
+                android:padding="2dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/progress_layer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/username_txt_view_profile" />
+
+            <View
+                android:id="@+id/view14"
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/invite_box"
+                app:layout_constraintEnd_toEndOf="@+id/levelProgress"
+                app:layout_constraintStart_toStartOf="@+id/levelProgress"
+                app:layout_constraintTop_toBottomOf="@+id/levelProgress" />
+
+            <View
+                android:id="@+id/view15"
+                android:layout_width="112dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/gold_view"
+                app:layout_constraintBottom_toBottomOf="@+id/view14"
+                app:layout_constraintEnd_toEndOf="@+id/view14"
+                app:layout_constraintTop_toTopOf="@+id/view14" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/invite_your_friends_nto_win_more_tickets"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/view14"
+                app:layout_constraintStart_toStartOf="@+id/view14"
+                app:layout_constraintTop_toTopOf="@+id/view14" />
+
+            <TextView
+                android:id="@+id/invite_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/invite_now"
+                android:textColor="@color/blue_txt_color"
+                app:layout_constraintBottom_toBottomOf="@+id/view15"
+                app:layout_constraintEnd_toEndOf="@+id/view15"
+                app:layout_constraintStart_toStartOf="@+id/view15"
+                app:layout_constraintTop_toTopOf="@+id/view15" />
+            <View
+                android:id="@+id/verify_box"
+                android:layout_width="0dp"
+                android:layout_height="62dp"
+                android:background="@drawable/bg_verify_box"
+                app:layout_constraintBottom_toBottomOf="@+id/view14"
+                app:layout_constraintEnd_toEndOf="@+id/view14"
+                app:layout_constraintStart_toStartOf="@+id/view14"
+                app:layout_constraintTop_toTopOf="@+id/view14" />
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/you_haven_t_completed_ne_mail_verification_yet"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/verify_box"
+                app:layout_constraintStart_toStartOf="@+id/verify_box"
+                app:layout_constraintTop_toTopOf="@+id/verify_box" />
+
+            <View
+                android:id="@+id/verification_btn"
+                android:layout_width="112dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/btn_box"
+                android:layout_marginEnd="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/textView41"
+                app:layout_constraintEnd_toEndOf="@+id/verify_box"
+                app:layout_constraintStart_toEndOf="@+id/textView41"
+                app:layout_constraintTop_toTopOf="@+id/textView41" />
+
+            <TextView
+                android:id="@+id/textView_Verify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/verify_now"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/verification_btn"
+                app:layout_constraintEnd_toEndOf="@+id/verification_btn"
+                app:layout_constraintStart_toStartOf="@+id/verification_btn"
+                app:layout_constraintTop_toTopOf="@+id/verification_btn" />
+
+            <View
+                android:id="@+id/view24"
+                android:layout_width="0dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/profile_view_box"
+                app:layout_constraintEnd_toStartOf="@+id/view26"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/view14"
+                app:layout_constraintTop_toBottomOf="@+id/view14" />
+
+            <View
+                android:id="@+id/view26"
+                android:layout_width="0dp"
+                android:layout_height="78dp"
+                android:background="@drawable/profile_view_box"
+                app:layout_constraintBottom_toBottomOf="@+id/view24"
+                app:layout_constraintEnd_toEndOf="@+id/view14"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/view24"
+                app:layout_constraintTop_toTopOf="@+id/view24" />
+
+            <View
+                android:id="@+id/view25"
+                android:layout_width="0dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/profile_view_box"
+                app:layout_constraintEnd_toStartOf="@+id/view27"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/view24"
+                app:layout_constraintTop_toBottomOf="@+id/view24" />
+
+            <View
+                android:id="@+id/view27"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/profile_view_box"
+                app:layout_constraintBottom_toBottomOf="@+id/view25"
+                app:layout_constraintEnd_toEndOf="@+id/view26"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/view25"
+                app:layout_constraintTop_toTopOf="@+id/view25" />
+
+            <LinearLayout
+                android:id="@+id/profileMenuContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/profile_view_box"
+                android:divider="@drawable/list_divider_white"
+                android:dividerPadding="16dp"
+                android:orientation="vertical"
+                android:showDividers="middle"
+                app:layout_constraintEnd_toEndOf="@+id/view27"
+                app:layout_constraintStart_toStartOf="@+id/view25"
+                app:layout_constraintTop_toBottomOf="@+id/view27">
+
+                <FrameLayout
+                    android:id="@+id/history_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/user_history"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/arrow_btn" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/setting_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/settings"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/arrow_btn" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Lotteries Joined"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view27"
+                app:layout_constraintEnd_toEndOf="@+id/view27"
+                app:layout_constraintHorizontal_bias="0.547"
+                app:layout_constraintStart_toStartOf="@+id/view27" />
+
+            <TextView
+                android:id="@+id/total_lottery_entry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="-8dp"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="@color/white"
+                app:drawableStartCompat="@drawable/trophy"
+                app:layout_constraintBottom_toTopOf="@+id/textView31"
+                app:layout_constraintEnd_toEndOf="@+id/textView31"
+                app:layout_constraintHorizontal_bias="0.478"
+                app:layout_constraintStart_toStartOf="@+id/textView31"
+                app:layout_constraintTop_toTopOf="@+id/view27" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Total Balance"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view25"
+                app:layout_constraintEnd_toEndOf="@+id/view25"
+                app:layout_constraintStart_toStartOf="@+id/view25" />
+
+            <TextView
+                android:id="@+id/total_prize_won"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/textView33"
+                app:layout_constraintEnd_toEndOf="@+id/textView33"
+                app:layout_constraintTop_toTopOf="@+id/view25"
+                app:layout_constraintVertical_bias="0.461" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Ads Watched"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view26"
+                app:layout_constraintEnd_toEndOf="@+id/view26"
+                app:layout_constraintStart_toStartOf="@+id/view26" />
+
+            <TextView
+                android:id="@+id/total_ad_watch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="@color/white"
+                app:drawableStartCompat="@drawable/ad"
+                app:layout_constraintBottom_toTopOf="@+id/textView35"
+                app:layout_constraintEnd_toEndOf="@+id/textView35"
+                app:layout_constraintStart_toStartOf="@+id/textView35"
+                app:layout_constraintTop_toTopOf="@+id/view26" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Tickets"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view24"
+                app:layout_constraintEnd_toEndOf="@+id/view24"
+                app:layout_constraintStart_toStartOf="@+id/view24" />
+
+            <TextView
+                android:id="@+id/ticket_earned"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/textView37"
+                app:layout_constraintEnd_toEndOf="@+id/textView37"
+                app:layout_constraintTop_toTopOf="@+id/view24" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="15dp"
+                android:layout_height="12dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ticket_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/ticket_earned"
+                app:layout_constraintEnd_toStartOf="@+id/ticket_earned"
+                app:layout_constraintStart_toStartOf="@+id/textView37"
+                app:layout_constraintTop_toTopOf="@+id/ticket_earned" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="16dp"
+                android:layout_height="14dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/gem"
+                app:layout_constraintBottom_toBottomOf="@+id/total_prize_won"
+                app:layout_constraintEnd_toStartOf="@+id/total_prize_won"
+                app:layout_constraintTop_toTopOf="@+id/total_prize_won" />
+
+            <TextView
+                android:id="@+id/levelText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/levelProgress"
+                app:layout_constraintEnd_toEndOf="@+id/levelProgress"
+                app:layout_constraintStart_toStartOf="@+id/levelProgress"
+                app:layout_constraintTop_toTopOf="@+id/levelProgress" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/btn_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Fixed Bottom Menu -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

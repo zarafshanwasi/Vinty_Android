@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Main shape with all borders -->
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Background color -->
+            <solid android:color="#2E0074" />
+
+            <!-- Border -->
+            <stroke
+                android:width="2dp"
+                android:color="#4D138E" />
+
+            <!-- Corner radius -->
+            <corners
+                android:topRightRadius="10dp"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="10dp"
+                android:bottomLeftRadius="0dp" />
+        </shape>
+    </item>
+
+    <!-- Overlay to hide bottom border while preserving left and right -->
+    <item
+        android:top="2dp"
+        android:left="2dp"
+        android:right="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#390577" />
+            <!-- Match the corner radius -->
+            <corners
+                android:topRightRadius="8dp"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="8dp"
+                android:bottomLeftRadius="0dp" />
+        </shape>
+    </item>
+
+</layer-list>

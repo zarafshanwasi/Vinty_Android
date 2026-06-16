@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.MainActivity">
+
+    <!-- Navigation Host -->
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Bottom Menu (shared across fragments) -->
+    <ImageView
+        android:id="@+id/bottom_menu_bg"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom_bar_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ad_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="26dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitEnd"
+        android:src="@drawable/ad_btn"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_menu_bg"
+        app:layout_constraintStart_toStartOf="@id/bottom_menu_bg"
+        app:layout_constraintEnd_toEndOf="@id/bottom_menu_bg" />
+
+    <ProgressBar
+        android:id="@+id/ad_loading_progress"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/ad_btn"
+        app:layout_constraintEnd_toEndOf="@id/ad_btn"
+        app:layout_constraintStart_toStartOf="@id/ad_btn"
+        app:layout_constraintTop_toTopOf="@id/ad_btn"
+        android:elevation="10dp"/>
+
+    <ImageView
+        android:id="@+id/trophy_btn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="40dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/tab_trophy"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_menu_bg"
+        app:layout_constraintStart_toStartOf="@id/bottom_menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/bottom_menu_bg" />
+
+    <ImageView
+        android:id="@+id/leaderboard_btn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/tab_btn3_dim_receipt"
+        app:layout_constraintBottom_toBottomOf="@id/trophy_btn"
+        app:layout_constraintEnd_toStartOf="@id/ad_btn"
+        app:layout_constraintStart_toEndOf="@id/trophy_btn"
+        app:layout_constraintTop_toTopOf="@+id/trophy_btn" />
+
+    <ImageView
+        android:id="@+id/gift_btn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/tab_btn2_voucher_dim"
+        app:layout_constraintBottom_toBottomOf="@id/leaderboard_btn"
+        app:layout_constraintStart_toEndOf="@id/ad_btn"
+        app:layout_constraintEnd_toStartOf="@id/profile_btn" />
+
+    <ImageView
+        android:id="@+id/profile_btn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/tap_btn1_person_dim"
+        app:layout_constraintBottom_toBottomOf="@id/gift_btn"
+        app:layout_constraintEnd_toEndOf="@id/bottom_menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/gift_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

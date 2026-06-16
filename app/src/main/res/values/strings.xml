@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">Vinty</string>
+    <string name="splash">Splash</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="enter_the_one_time_password_otp_sent_to_your_email_or_phone_to_continue">Enter the one-time password (OTP) sent to your email or phone to continue.</string>
+    <string name="verify">Verify</string>
+    <string name="create_account">Create Account</string>
+    <string name="set_up_your_account_by_choosing_a_username_n_entering_your_email_and_creating_a_password">Set up your account by choosing a username,\n entering your email, and creating a password.</string>
+    <string name="enter_your_username">Enter your username</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="or_continue_with">Or continue with</string>
+    <string name="google">Google</string>
+    <string name="apple">Apple</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="create_a_new_password_and_confirm_it_to_finish_resetting_your_account">Create a new password and confirm it to finish resetting your account.</string>
+    <string name="submit">Submit</string>
+    <string name="enter_your_email_address_to_receive_a_reset_code_then_follow_the_steps_to_create_a_new_password">Enter your email address to receive a reset code, then follow the steps to create a new password.</string>
+    <string name="send_code">Send Code</string>
+    <string name="type_the_6_digit_code_sent_to_your_email_to_verify_your_account">Type the 6-digit code sent to your email to verify your account.</string>
+    <string name="continue_forgot">Continue</string>
+    <string name="don_t_receive_the_email_click_to_send_again">Don’t receive the email? Click to send again</string>
+    <string name="enter_your_username_or_email">Enter your username or email</string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+
+    <string name="i_have_read_and_agree_to_the_terms_and_n_conditions_and_privacy_policy">
+    I have read and agree to the
+    <a href="https://www.vinty.win/terms.html"><u>Terms and Conditions</u></a> and
+    <a href="https://www.vinty.win/privacy.html"><u>Privacy Policy</u></a>
+</string>
+    <string name="help_support"><![CDATA[Help & Support]]></string>
+    <string name="term_conditions"><![CDATA[Term & Conditions]]></string>
+    <string name="copy_link">Copy Link</string>
+    <string name="https_vinty_app_invite_ac242f">https://vinty.app/invite/AC242F</string>
+    <string name="send_this_invitation_link_to_your_friends_they_can_join_directly_using_it">Send this invitation link to your friends — they can join directly using it.</string>
+    <string name="invite_with_a_link">Invite with a Link</string>
+    <string name="copy_code">Copy Code</string>
+    <string name="choose_a_username_and_enter_your_email_to_begin_creating_your_account">Choose a username and enter your email to begin creating your account.</string>
+    <string name="invite_with_a_code">Invite with a Code</string>
+    <string name="invite_friends">Invite Friends</string>
+    <string name="_42">42</string>
+    <string name="logout">Logout</string>
+    <string name="change_password">Change Password</string>
+    <string name="delete_account">Delete my account</string>
+    <string name="profile_information">Profile Information</string>
+    <string name="account">Account</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="legal">Legal</string>
+    <string name="contact_support">Contact Support</string>
+    <string name="faqs">FAQs</string>
+    <string name="notifications">Notifications</string>
+    <string name="general">General</string>
+    <string name="settings">Settings</string>
+    <string name="user_history">User History</string>
+    <string name="invite_now">Invite Now!</string>
+    <string name="invite_your_friends_nto_win_more_tickets">Invite Your Friends\nto win more tickets!</string>
+    <string name="delete_my_account">Delete My Account</string>
+    <string name="todo">TODO</string>
+    <string name="skip">Skip</string>
+    <string name="watch_ads_discover"><![CDATA[Watch Ads & Discover]]></string>
+    <string name="spend_a_few_spare_moments_watching_nsponsored_videos_it_s_the_easiest_way_to_n_start_your_journey_with_vinty">Spend a few spare moments watching\nsponsored videos. It’s the easiest way to\n start your journey with Vinty</string>
+    <string name="share_code">Share Code</string>
+    <string name="join_with_an_invite_code">Join with an Invite Code</string>
+    <string name="enter_the_invite_code_you_received_to_unlock_access">Enter the invite code you received to unlock access.</string>
+    <string name="claim_reward">Claim Reward</string>
+    <string name="invite_accepted">Invite Accepted!</string>
+    <string name="you_ve_signed_up_using_an_invite">You’ve signed up using an invite.</string>
+    <string name="reward">Reward:</string>
+    <string name="you_haven_t_completed_ne_mail_verification_yet">You haven’t completed\ne-mail verification yet.</string>
+    <string name="verify_now">Verify now!</string>
+    <string name="view_leaderboard">View Leaderboard</string>
+    <string name="see_the_ranking_of_all_players">See the ranking of all players!</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="tap_to_spin">Tap to Spin</string>
+    <string name="spin_the_jackpot_and_ndon_t_miss_today_s_nchance_to_win_big">Spin the Jackpot and \ndon\'t miss today\'s\nchance to win big!</string>
+    <string name="jackpot">Jackpot</string>
+    <string name="see_all_missions">See All Missions</string>
+    <string name="complete_all_n_missions_to_earn_n_more_tickets">Complete all\n missions to earn\n more tickets</string>
+    <string name="new_missions">New Missions!</string>
+    <string name="view_badges">View Badges</string>
+    <string name="you_are_only_12_ads_away_from_n_winning_the_ad_explorer_badge">You are only 12 ads away from\n winning the Ad Explorer Badge!</string>
+    <string name="spin_now_and_don_t_miss_n_today_s_free_chance_to_win_big">Spin now and don’t miss\n today’s free chance to win big.</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="spin_the_wheel">Spin the wheel!</string>
+    <string name="enter_your_current_password_and_set_a_new_one">Enter your current password and set a new one</string>
+    <string name="enter_current_password">Enter current password</string>
+    <string name="enter_your_new_password">Enter your new password</string>
+    <string name="rank">Rank</string>
+    <string name="tickets_earned">Tickets Earned</string>
+    <string name="username">Username</string>
+    <string name="missions">Missions</string>
+    <string name="badges">Badges</string>
+    <string name="no_badges_available">No badges available</string>
+    <string name="gift_store">Gift Store</string>
+    <string name="redeem_now">Redeem Now</string>
+    <string name="invite_your_friends_now">Invite your friends now!</string>
+
+    <!-- Facebook SDK -->
+    <string name="facebook_app_id">884329484553894</string>
+    <string name="facebook_client_token">a3dc819b55a7b98aa6a318020dbf32ad</string>
+
+</resources>
