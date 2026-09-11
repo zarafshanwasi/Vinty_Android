@@ -5,8 +5,17 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import com.unity3d.ads.*
-import com.unity3d.ads.UnityAds
+import com.idealink.vinty.BuildConfig
+import com.unity3d.mediation.LevelPlay
+import com.unity3d.mediation.LevelPlayAdError
+import com.unity3d.mediation.LevelPlayAdInfo
+import com.unity3d.mediation.LevelPlayConfiguration
+import com.unity3d.mediation.LevelPlayInitError
+import com.unity3d.mediation.LevelPlayInitListener
+import com.unity3d.mediation.LevelPlayInitRequest
+import com.unity3d.mediation.rewarded.LevelPlayReward
+import com.unity3d.mediation.rewarded.LevelPlayRewardedAd
+import com.unity3d.mediation.rewarded.LevelPlayRewardedAdListener
 
 class AdManager(context: Context) {
 
@@ -25,6 +34,12 @@ class AdManager(context: Context) {
 
     private var state = State.IDLE
     private var loadingCallback: ((Boolean) -> Unit)? = null
+
+    @Volatile
+    private var isInitialized = false
+
+    private var rewardedAd: LevelPlayRewardedAd? = null
+    private var wasRewarded = false
 
     // =========================================================
     // Listener
@@ -63,8 +78,8 @@ class AdManager(context: Context) {
         // -----------------------------------------------------
         // Step 1 — Initialize safely (async)
         // -----------------------------------------------------
-        if (!UnityAds.isInitialized) {
-            initializeUnityAds {
+        if (!isInitialized) {
+            initializeLevelPlay {
                 showRewardedAd(activity, listener)
             }
             return
@@ -95,44 +110,8 @@ class AdManager(context: Context) {
         // -----------------------------------------------------
         // Step 3 — Show
         // -----------------------------------------------------
-        UnityAds.show(activity, AD_UNIT_ID, object : IUnityAdsShowListener {
-            override fun onUnityAdsShowStart(placementId: String) {
-                post { listener.onAdShown() }
-            }
-
-            override fun onUnityAdsShowClick(placementId: String) {
-                Log.d(TAG, "Ad clicked")
-            }
-
-            override fun onUnityAdsShowFailure(
-                placementId: String,
-                error: UnityAds.UnityAdsShowError,
-                message: String
-            ) {
-                Log.e(TAG, "Show failed: [$error] $message")
-
-                state = State.IDLE
-
-                post {
-                    listener.onError("Ad show failed: $message")
-                }
-            }
-
-            override fun onUnityAdsShowComplete(
-                placementId: String,
-                completionState: UnityAds.UnityAdsShowCompletionState
-            ) {
-                state = State.IDLE
-
-                post {
-                    if (completionState == UnityAds.UnityAdsShowCompletionState.COMPLETED) {
-                        listener.onAdCompleted()
-                    } else {
-                        listener.onAdDismissed()
-                    }
-                }
-            }
-        })
+        wasRewarded = false
+        getOrCreateRewardedAd(listener).showAd(activity)
     }
 
     // =========================================================
@@ -155,9 +134,20 @@ class AdManager(context: Context) {
         state = State.LOADING
         loadingCallback?.invoke(true)
 
-        UnityAds.load(AD_UNIT_ID, object : IUnityAdsLoadListener {
+        getOrCreateRewardedAd(listener).loadAd()
+    }
 
-            override fun onUnityAdsAdLoaded(placementId: String) {
+    // =========================================================
+    // Rewarded ad instance
+    // =========================================================
+
+    private fun getOrCreateRewardedAd(listener: AdListener?): LevelPlayRewardedAd {
+        rewardedAd?.let { return it }
+
+        val ad = LevelPlayRewardedAd(AD_UNIT_ID)
+        ad.setListener(object : LevelPlayRewardedAdListener {
+
+            override fun onAdLoaded(adInfo: LevelPlayAdInfo) {
                 state = State.LOADED
                 loadingCallback?.invoke(false)
 
@@ -166,50 +156,85 @@ class AdManager(context: Context) {
                 }
             }
 
-            override fun onUnityAdsFailedToLoad(
-                placementId: String,
-                error: UnityAds.UnityAdsLoadError,
-                message: String
-            ) {
-                Log.e(TAG, "Load failed: [$error] $message")
+            override fun onAdLoadFailed(error: LevelPlayAdError) {
+                Log.e(TAG, "Load failed: [${error.errorCode}] ${error.errorMessage}")
 
                 state = State.IDLE
                 loadingCallback?.invoke(false)
 
                 post {
-                    listener?.onAdFailedToLoad(message)
+                    listener?.onAdFailedToLoad(error.errorMessage)
                 }
             }
+
+            override fun onAdDisplayed(adInfo: LevelPlayAdInfo) {
+                post { listener?.onAdShown() }
+            }
+
+            override fun onAdDisplayFailed(error: LevelPlayAdError, adInfo: LevelPlayAdInfo) {
+                Log.e(TAG, "Show failed: [${error.errorCode}] ${error.errorMessage}")
+
+                state = State.IDLE
+
+                post {
+                    listener?.onError("Ad show failed: ${error.errorMessage}")
+                }
+            }
+
+            override fun onAdRewarded(reward: LevelPlayReward, adInfo: LevelPlayAdInfo) {
+                wasRewarded = true
+            }
+
+            override fun onAdClicked(adInfo: LevelPlayAdInfo) {
+                Log.d(TAG, "Ad clicked")
+            }
+
+            override fun onAdClosed(adInfo: LevelPlayAdInfo) {
+                state = State.IDLE
+
+                post {
+                    if (wasRewarded) {
+                        listener?.onAdCompleted()
+                    } else {
+                        listener?.onAdDismissed()
+                    }
+                    wasRewarded = false
+                }
+            }
+
+            override fun onAdInfoChanged(adInfo: LevelPlayAdInfo) {}
         })
+
+        rewardedAd = ad
+        return ad
     }
 
     // =========================================================
     // Initialization (safe async)
     // =========================================================
 
-    private fun initializeUnityAds(onComplete: (() -> Unit)? = null) {
+    private fun initializeLevelPlay(onComplete: (() -> Unit)? = null) {
 
-        if (UnityAds.isInitialized) {
+        if (isInitialized) {
             onComplete?.invoke()
             return
         }
 
-        UnityAds.initialize(
-            appContext,
-            GAME_ID,
-            TEST_MODE,
-            object : IUnityAdsInitializationListener {
+        val initRequest = LevelPlayInitRequest.Builder(APP_KEY).build()
 
-                override fun onInitializationComplete() {
-                    Log.d(TAG, "Unity Ads initialized")
+        LevelPlay.init(
+            appContext,
+            initRequest,
+            object : LevelPlayInitListener {
+
+                override fun onInitSuccess(configuration: LevelPlayConfiguration) {
+                    Log.d(TAG, "LevelPlay initialized")
+                    isInitialized = true
                     onComplete?.invoke()
                 }
 
-                override fun onInitializationFailed(
-                    error: UnityAds.UnityAdsInitializationError?,
-                    message: String?
-                ) {
-                    Log.e(TAG, "Initialization failed: [$error] $message")
+                override fun onInitFailed(error: LevelPlayInitError) {
+                    Log.e(TAG, "Initialization failed: [${error.errorCode}] ${error.errorMessage}")
                 }
             }
         )
@@ -226,10 +251,7 @@ class AdManager(context: Context) {
     companion object {
         private const val TAG = "AdManager"
 
-        // Unity test IDs
-        private const val GAME_ID = "4853271"
-        private const val AD_UNIT_ID = "Rewarded_Android"
-
-        private const val TEST_MODE = true
+        private val APP_KEY = BuildConfig.LEVELPLAY_APP_KEY
+        private val AD_UNIT_ID = BuildConfig.LEVELPLAY_REWARDED_AD_UNIT_ID
     }
 }

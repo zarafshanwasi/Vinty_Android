@@ -54,11 +54,9 @@ class HomeViewModel(private val repository: VintyRepository) : ViewModel() {
                 val response = repository.getBadgeProgress()
                 val baseUrl = BuildConfig.BASE_IMAGE_URL
                 response.adWatchingProgress?.let { badge ->
-                    val fullIconUrl = if (badge.iconUrl.startsWith("http")) {
-                        badge.iconUrl
-                    } else {
-                        "$baseUrl${badge.iconUrl}"
-                    }
+                    val fullIconUrl = badge.iconUrl
+                        ?.replace(".svg", ".png", ignoreCase = true)
+                        ?.let { icon -> if (icon.startsWith("http")) icon else "$baseUrl$icon" }
 
                     _badgeStateProgress.value = BadgeState(fullIconUrl, badge.message)
                 }

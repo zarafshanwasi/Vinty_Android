@@ -28,16 +28,17 @@ data class BadgeProgressResponse(
     val ticketProgress: BadgeProgress?
 )
 data class BadgeProgress(
-    val badgeId: String,
-    val badgeName: String,
-    val badgeDescription: String,
-    val badgeTier: String,
+    val badgeId: String?,
+    val badgeName: String?,
+    val badgeDescription: String?,
+    val badgeTier: String?,
     val progress: Int,
     val target: Int,
     val remaining: Int,
     val progressPercentage: Int,
     val rewardTickets: Int,
-    val iconUrl: String,
+    val iconUrl: String?,
     val isUnlocked: Boolean,
-    val message: String
+    val message: String,
+    val allUnlocked: Boolean? = null
 )

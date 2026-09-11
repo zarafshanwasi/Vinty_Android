@@ -67,12 +67,13 @@ class GiftStoreShopFragment : Fragment() {
     private fun observeViewModel() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.shopGiftCards.collect { cards ->
-                if (cards.isEmpty()) {
+                val noneAvailable = cards.isEmpty() || cards.all { !it.isAvailable || it.availableCount == 0 }
+                if (noneAvailable) {
                     binding.recyclerView.visibility = View.GONE
                     binding.lottieAnimation.visibility = View.VISIBLE
                     binding.emptyText.visibility = View.VISIBLE
                     binding.emptyText2.visibility = View.VISIBLE
-                    binding.emptyText.text = "No gift cards yet"
+                    binding.emptyText.text = "21 users claimed $5 today"
                     binding.emptyText2.text = "Gift cards will appear here once they are available."
                 } else {
                     binding.recyclerView.visibility = View.VISIBLE

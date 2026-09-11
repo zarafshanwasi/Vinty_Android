@@ -44,10 +44,11 @@ class BadgeAdapter(
                 badgeIcon.setImageDrawable(null)
 
                 val baseUrl = BuildConfig.BASE_IMAGE_URL
-                val iconUrl = if (badge.iconUrl.startsWith("http")) {
-                    badge.iconUrl
+                val rawIconUrl = badge.iconUrl.replace(".svg", ".png", ignoreCase = true)
+                val iconUrl = if (rawIconUrl.startsWith("http")) {
+                    rawIconUrl
                 } else {
-                    "$baseUrl${badge.iconUrl}"
+                    "$baseUrl$rawIconUrl"
                 }
 
                 Glide.with(root.context)

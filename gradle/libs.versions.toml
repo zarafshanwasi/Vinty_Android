@@ -25,7 +25,8 @@ legacySupportV4 = "1.0.0"
 lifecycleLivedataKtx = "2.10.0"
 lifecycleViewmodelKtx = "2.10.0"
 unityAds = "4.13.0"
-filamentAndroid = "1.17.1"
+levelplayMediationSdk = "9.6.0"
+levelplayAdmobAdapter = "5.13.0"
 lifecycleRuntimeKtx = "2.10.0"
 firebaseBom = "33.7.0"
 firebaseCrashlyticsPlugin = "3.0.3"
@@ -57,7 +58,8 @@ androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 unity-ads = { module = "com.unity3d.ads:unity-ads", version.ref = "unityAds" }
-filament-android = { group = "com.google.ar.sceneform", name = "filament-android", version.ref = "filamentAndroid" }
+levelplay-mediation-sdk = { group = "com.unity3d.ads-mediation", name = "mediation-sdk", version.ref = "levelplayMediationSdk" }
+levelplay-admob-adapter = { group = "com.unity3d.ads-mediation", name = "admob-adapter", version.ref = "levelplayAdmobAdapter" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx" }

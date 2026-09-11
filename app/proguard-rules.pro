@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Unity LevelPlay mediation SDK + AdMob adapter
+-keep class com.ironsource.** { *; }
+-keep class com.unity3d.mediation.** { *; }
+-keep class com.google.android.libraries.ads.mobile.sdk.** { *; }

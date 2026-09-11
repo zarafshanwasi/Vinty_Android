@@ -70,6 +70,30 @@ android {
             "BASE_IMAGE_URL",
             "\"https://admin.coraffle.com\""
         )
+
+        buildConfigField(
+            "String",
+            "LEVELPLAY_APP_KEY",
+            "\"27e811185\""
+        )
+
+        buildConfigField(
+            "String",
+            "LEVELPLAY_REWARDED_AD_UNIT_ID",
+            "\"zyrljyklkmaocv67\""
+        )
+
+        buildConfigField(
+            "String",
+            "ADMOB_APP_ID",
+            "\"ca-app-pub-3800563149212256~8738495675\""
+        )
+
+        buildConfigField(
+            "String",
+            "ADMOB_AD_UNIT_ID",
+            "\"ca-app-pub-3800563149212256/6112332338\""
+        )
     }
 
     compileOptions {
@@ -107,7 +131,8 @@ dependencies {
     implementation("androidx.media3:media3-ui:1.3.1")
 
     implementation(libs.play.services.games)
-    implementation(libs.unity.ads)
+    implementation(libs.levelplay.mediation.sdk)
+    implementation(libs.levelplay.admob.adapter)
     implementation("com.google.android.gms:play-services-auth:21.2.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
@@ -126,7 +151,6 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.filament.android)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     // Firebase
     implementation(platform(libs.firebase.bom))

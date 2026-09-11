@@ -14,8 +14,11 @@ data class AdHistory(
     val id: String,
     val userId: String,
     val watchedAt: String,
-    val value: Int,
-    val ticketAwarded: Boolean
+    val value: Double,
+    val ticketAwarded: Boolean,
+    val adType: String,
+    val ticketsGranted: Int,
+    val sponsorshipId: String?
 )
 
 class AdHistoryAdapter : ListAdapter<AdHistory, RecyclerView.ViewHolder>(AdHistoryDiffCallback()) {
@@ -62,7 +65,7 @@ class AdHistoryAdapter : ListAdapter<AdHistory, RecyclerView.ViewHolder>(AdHisto
 
         fun bind(adHistory: AdHistory) {
             binding.tickets.text = if (adHistory.ticketAwarded) {
-                "+${adHistory.value} Tickets"
+                "+${adHistory.ticketsGranted} Tickets"
             } else {
                 "No ticket"
             }
@@ -77,7 +80,7 @@ class AdHistoryAdapter : ListAdapter<AdHistory, RecyclerView.ViewHolder>(AdHisto
 
         fun bind(adHistory: AdHistory) {
             binding.tickets.text = if (adHistory.ticketAwarded) {
-                "+${adHistory.value} Tickets"
+                "+${adHistory.ticketsGranted} Tickets"
             } else {
                 "No ticket"
             }

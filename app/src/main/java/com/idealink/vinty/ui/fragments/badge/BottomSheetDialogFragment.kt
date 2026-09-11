@@ -165,10 +165,11 @@ class BadgeDetailBottomSheet(
 
     private fun loadBadgeImage() {
         val baseUrl = BuildConfig.BASE_IMAGE_URL
-        val imageUrl = if (badge.iconUrl.startsWith("http")) {
-            badge.iconUrl
+        val rawIconUrl = badge.iconUrl.replace(".svg", ".png", ignoreCase = true)
+        val imageUrl = if (rawIconUrl.startsWith("http")) {
+            rawIconUrl
         } else {
-            "$baseUrl${badge.iconUrl}"
+            "$baseUrl$rawIconUrl"
         }
 
         Glide.with(requireContext())
